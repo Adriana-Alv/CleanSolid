@@ -25,6 +25,12 @@
     
         
     }
+     
+    class NotificationService{
+        sendEmail() {
+            console.log('Enviando correo a los clientes');
+        }
+    }
 
     class CartBloc{
         onAddToCart( productId: number ) {
@@ -33,19 +39,20 @@
         }
     
 
-
     }
     
 
 
     const productBloc = new ProductBloc();
     const cartBloc = new CartBloc();
+    const notificationService = new NotificationService();
 
     productBloc.loadProduct(10);
     productBloc.saveProduct({ id: 10, name: 'OLED TV' });
     productBloc.notifyClients();
     //productBloc.onAddToCart(10);
     cartBloc.onAddToCart(10);
+    notificationService.sendEmail();
 
 
 
